@@ -1,5 +1,6 @@
 const path = require('path')
 const { VueLoaderPlugin } = require('vue-loader')
+const HtmlWebpackPlugin = require('html-webpack-plugin')  // <-- добавляем импорт
 
 module.exports = {
     mode: 'development',
@@ -37,6 +38,10 @@ module.exports = {
         }
     },
     plugins: [
-        new VueLoaderPlugin()
+        new VueLoaderPlugin(),
+        new HtmlWebpackPlugin({               // <-- добавляем плагин
+            template: path.resolve(__dirname, 'src/index.html'),  // укажи путь к твоему шаблону
+            filename: 'index.html'
+        })
     ]
 }
