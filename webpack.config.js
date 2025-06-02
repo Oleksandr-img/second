@@ -4,9 +4,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
     mode: 'development',
-    entry: path.resolve(__dirname, 'main.js'),
+    entry: path.resolve(__dirname, 'src/js/main.js'),
     output: {
-        path:path.resolve(__dirname, 'Vue.JS Website'),
+        path:path.resolve(__dirname, 'dist'),
         filename: 'main.js'
     },
     module: {
@@ -34,13 +34,13 @@ module.exports = {
         compress: true,
         hot: true,
         static: {
-            directory: path.join(__dirname, 'Vue.JS Website')
+            directory: path.join(__dirname, 'dist')
         }
     },
     plugins: [
         new VueLoaderPlugin(),
         new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, 'index.html'),
+            template: path.resolve(__dirname, 'src/index.html'),
             filename: 'index.html'
         })
     ]
