@@ -1,12 +1,12 @@
 const path = require('path')
 const { VueLoaderPlugin } = require('vue-loader')
-const HtmlWebpackPlugin = require('html-webpack-plugin')  // <-- добавляем импорт
+const HtmlWebpackPlugin = require('html-webpack-plugin') 
 
 module.exports = {
     mode: 'development',
-    entry: path.resolve(__dirname, 'src/js/main.js'),
+    entry: path.resolve(__dirname, 'main.js'),
     output: {
-        path:path.resolve(__dirname, 'dist'),
+        path:path.resolve(__dirname, 'Vue.JS Website'),
         filename: 'main.js'
     },
     module: {
@@ -34,13 +34,13 @@ module.exports = {
         compress: true,
         hot: true,
         static: {
-            directory: path.join(__dirname, 'dist')
+            directory: path.join(__dirname, 'Vue.JS Website')
         }
     },
     plugins: [
         new VueLoaderPlugin(),
-        new HtmlWebpackPlugin({               // <-- добавляем плагин
-            template: path.resolve(__dirname, 'src/index.html'),  // укажи путь к твоему шаблону
+        new HtmlWebpackPlugin({
+            template: path.resolve(__dirname, 'index.html'),
             filename: 'index.html'
         })
     ]
